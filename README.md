@@ -147,8 +147,9 @@ This is an example of how to list things you need to use the software and how to
   sudo ./b2 --with=all -j $cpuCores install
   ```
  * Check boost version
-  Type
-  `cat /usr/local/include/boost/version.hpp | grep "BOOST_LIB_VERSION"`
+   ```sh
+  cat /usr/local/include/boost/version.hpp | grep "BOOST_LIB_VERSION"
+  ```
  * Result
   ```sh
   // BOOST_LIB_VERSION must be defined to be the same as BOOST_VERSION
@@ -161,13 +162,16 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/zoumson/MultipleThreadMultipleClientSingleServerSocketCPP.git
    ```
-3. Go to build
+2. Go to build
    ```sh
    cd ./build
    ```
-4. Make sure build folder is empty, only .gitignore there is fine
-`tree -L 1`
-Expected result
+3. Make sure build folder is empty, only .gitignore there is fine
+* Command 
+   ```sh
+   tree -L 1
+   ```
+* Expected result
    ```sh
     .
 
@@ -187,21 +191,131 @@ Expected result
 ## Usage
 Command line arguments
 <br>
-See opencv `CommandLineParser` for more detail.
+1.  Sever side 
+* Command parser using boost options_program
+```
+Usage: options_description [options]
+Allowed options:
+  -h [ --help ]                         produce help message
+  -p [ --port ] [=arg(=60000)] (=no)    server port number.
+  -c [ --connexion ] [=arg(=10)] (=few) server max connexion.
 
 ```
- "{i image |<none>           | input image path}"         
-        "{c classifier |../ressource/xml/classifications.xml   | input classifier path}"         
-        "{t train |../ressource/xml/images.xml                 | input trained images path}"         
-        "{p path |../result/image/                 | save image detected with detected plate path}"                 
-        "{p name |image                 | save image detected with detected plate name}"                 
-        "{n ext |png                | save image detected with detected plate extension}"                 
-        "{s show |false                 | show detection steps}"         
-        "{v save |false                 | save image with detected plate}"         
-        "{help h usage ?    |      | show help message}";      
+* Dafaut server port number: random available port from host
+   ```sh
+   ./server 
+   ```
+* Implicit server port number: 60000
+   ```sh
+   ./server -p
+   ```
+ * Self defined server port number: myPort
+   ```sh
+   ./server -p myPort
+   ```
+  * Server log: `server.log`
+  * Sample server log
+  
+  
+  ```
+  [2021-05-28 02:08:11]<6>: Server IP: [192.168.1.106]
+  [2021-05-28 02:08:11]<6>: Server max connexion: [5]
+  [2021-05-28 02:08:11]<6>: Creating a server socket ...
+  [2021-05-28 02:08:11]<6>: A client socket created
+  [2021-05-28 02:08:11]<6>: Binding to a local port ...
+  [2021-05-28 02:08:11]<6>: Bind success
+  [2021-05-28 02:08:11]<6>: Server Port Number: [60000]
+  [2021-05-28 02:08:11]<6>: Listenning to a new connexion...
+  [2021-05-28 02:08:11]<6>: A client connected to a server
+  [2021-05-28 02:08:11]<6>: Accepting a connexion...
+  [2021-05-28 02:08:42]<6>: Connexion accepted
+  [2021-05-28 02:08:42]<6>: Client IP: [192.168.1.106]
+  [2021-05-28 02:08:42]<6>: Client Port Number: [49034]
+  [2021-05-28 02:08:42]<6>: Accepting a connexion...
+  [2021-05-28 02:08:42]<6>: Time received from the client 6: 02:08:42
+  [2021-05-28 02:08:48]<6>: Time received from the client 6: 02:08:48
+  [2021-05-28 02:08:54]<6>: Time received from the client 6: 02:08:54
+  [2021-05-28 02:09:00]<6>: Time received from the client 6: 02:09:00
+  [2021-05-28 02:09:06]<6>: Time received from the client 6: 02:09:06
+  [2021-05-28 02:09:12]<6>: Time received from the client 6: 02:09:12
+  [2021-05-28 02:09:18]<6>: Connexion accepted
+  [2021-05-28 02:09:18]<6>: Client IP: [192.168.1.106]
+  [2021-05-28 02:09:18]<6>: Client Port Number: [49036]
+  [2021-05-28 02:09:18]<6>: Accepting a connexion...
+  [2021-05-28 02:09:18]<6>: Time received from the client 7: 02:09:18
+  [2021-05-28 02:09:18]<6>: Time received from the client 6: 02:09:18
+  [2021-05-28 02:09:24]<6>: Time received from the client 7: 02:09:24
+  [2021-05-28 02:09:24]<6>: Time received from the client 6: 02:09:24
+  [2021-05-28 02:09:30]<6>: Closing connexion with client: 7
+  [2021-05-28 02:09:30]<6>: A Server closing an accpeted connexion ...
+  [2021-05-28 02:09:30]<6>: Accepted connexion closed
+  [2021-05-28 02:09:30]<6>: Time received from the client 6: 02:09:30
+  [2021-05-28 02:09:36]<6>: Closing connexion with client: 6
+  [2021-05-28 02:09:36]<6>: A Server closing an accpeted connexion ...
+  [2021-05-28 02:09:36]<6>: Accepted connexion closed
+  ```
+2.  Sever side 
+* Command parser using boost options_program
+```
+Usage: options_description [options]
+Allowed options:
+  -h [ --help ]         produce help message
+  -i [ --ip ] arg       server IP address
+  -p [ --port ] arg     server port number.
 
 ```
-
+* Client log: `client.log`
+* Sample client log
+  ```
+  [2021-05-28 02:08:42]<6>: A Client sending a request ...
+  [2021-05-28 02:08:42]<6>: Request sent to a server
+  [2021-05-28 02:08:42]<6>: A Client receiving a response ...
+  [2021-05-28 02:08:42]<6>: Response from a server
+  [2021-05-28 02:08:42]<6>: sucess
+  [2021-05-28 02:08:48]<6>: A Client sending a request ...
+  [2021-05-28 02:08:48]<6>: Request sent to a server
+  [2021-05-28 02:08:48]<6>: A Client receiving a response ...
+  [2021-05-28 02:08:48]<6>: Response from a server
+  [2021-05-28 02:08:48]<6>: sucess
+  [2021-05-28 02:08:54]<6>: A Client sending a request ...
+  [2021-05-28 02:08:54]<6>: Request sent to a server
+  [2021-05-28 02:08:54]<6>: A Client receiving a response ...
+  [2021-05-28 02:08:54]<6>: Response from a server
+  [2021-05-28 02:08:54]<6>: sucess
+  [2021-05-28 02:09:00]<6>: A Client sending a request ...
+  [2021-05-28 02:09:00]<6>: Request sent to a server
+  [2021-05-28 02:09:00]<6>: A Client receiving a response ...
+  [2021-05-28 02:09:00]<6>: Response from a server
+  [2021-05-28 02:09:00]<6>: sucess
+  [2021-05-28 02:09:06]<6>: A Client sending a request ...
+  [2021-05-28 02:09:06]<6>: Request sent to a server
+  [2021-05-28 02:09:06]<6>: A Client receiving a response ...
+  [2021-05-28 02:09:06]<6>: Response from a server
+  [2021-05-28 02:09:06]<6>: sucess
+  [2021-05-28 02:09:12]<6>: A Client sending a request ...
+  [2021-05-28 02:09:12]<6>: Request sent to a server
+  [2021-05-28 02:09:12]<6>: A Client receiving a response ...
+  [2021-05-28 02:09:12]<6>: Response from a server
+  [2021-05-28 02:09:12]<6>: sucess
+  [2021-05-28 02:09:18]<6>: A Client sending a request ...
+  [2021-05-28 02:09:18]<6>: Request sent to a server
+  [2021-05-28 02:09:18]<6>: A Client receiving a response ...
+  [2021-05-28 02:09:18]<6>: Response from a server
+  [2021-05-28 02:09:18]<6>: sucess
+  [2021-05-28 02:09:24]<6>: A Client sending a request ...
+  [2021-05-28 02:09:24]<6>: Request sent to a server
+  [2021-05-28 02:09:24]<6>: A Client receiving a response ...
+  [2021-05-28 02:09:24]<6>: Response from a server
+  [2021-05-28 02:09:24]<6>: sucess
+  [2021-05-28 02:09:30]<6>: A Client sending a request ...
+  [2021-05-28 02:09:30]<6>: Request sent to a server
+  [2021-05-28 02:09:30]<6>: A Client receiving a response ...
+  [2021-05-28 02:09:30]<6>: Response from a server
+  [2021-05-28 02:09:30]<6>: sucess
+  ```
+   
+      
+   
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -234,7 +348,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Adama Zouma - <!-- [@your_twitter](https://twitter.com/your_username) -->- stargue49@gmail.com
 
-Project Link: [https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv](https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv)
+Project Link: [https://github.com/zoumson/MultipleThreadMultipleClientSingleServerSocketCPP](https://github.com/zoumson/MultipleThreadMultipleClientSingleServerSocketCPP)
 
 
 
