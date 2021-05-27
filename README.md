@@ -146,10 +146,10 @@ This is an example of how to list things you need to use the software and how to
   ./bootstrap.sh  # this will generate ./b2
   sudo ./b2 --with=all -j $cpuCores install
   ```
-  Check boost version
+ * Check boost version
   Type
   `cat /usr/local/include/boost/version.hpp | grep "BOOST_LIB_VERSION"`
-  Result
+ * Result
   ```sh
   // BOOST_LIB_VERSION must be defined to be the same as BOOST_VERSION
   #define BOOST_LIB_VERSION "1_76_0"
