@@ -108,7 +108,7 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 ### Built With
 
 
-* [opencv](https://boost.org/)
+* [boost](https://boost.org/)
 * [cmake](https://cmake.org/)
 * [gnu](https://www.gnu.org/)
 
@@ -123,28 +123,61 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
+* tree
+  ```sh
+  sudo apt-get install tree
+  ```
 * cmake
   ```sh
   sudo apt-get install cmake
   ```
  * CPP standard: `CMAKE_CXX_STANDARD 17`
-
+* boost 
+  ```sh
+  cd /opt
+  mkdir boost
+  sudo apt-get -y install build-essential g++ python-dev autotools-dev libicu-dev libbz2-dev
+  wget http://downloads.sourceforge.net/project/boost/boost/1.76.0/boost_1_76_0.tar.gz
+  tar -zxvf boost_1_764_0.tar.gz
+  cd boost_1_76_0
+  # get the no of cpucores to make faster
+  cpuCores=`cat /proc/cpuinfo | grep "cpu cores" | uniq | awk '{print $NF}'`
+  echo "Available CPU cores: "$cpuCores
+  ./bootstrap.sh  # this will generate ./b2
+  sudo ./b2 --with=all -j $cpuCores install
+  ```
+  Check boost version
+  Type
+  `cat /usr/local/include/boost/version.hpp | grep "BOOST_LIB_VERSION"`
+  Result
+  ```sh
+  // BOOST_LIB_VERSION must be defined to be the same as BOOST_VERSION
+  #define BOOST_LIB_VERSION "1_76_0"
+  ```
+  
 ### Installation
 
-1. Install first `opencv4` cpp libraries at [https://opencv.org/](https://opencv.org/)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv.git
+   git clone https://github.com/zoumson/MultipleThreadMultipleClientSingleServerSocketCPP.git
    ```
 3. Go to build
    ```sh
-   cd ./buil
+   cd ./build
    ```
+4. Make sure build folder is empty, only .gitignore there is fine
+`tree -L 1`
+Expected result
+   ```sh
+    .
+
+    0 directories, 0 files
+   ```sh
 4. Then run the cmake file to generate the makefile
    ```sh
    cmake ..
    ```
-5. Finally run the makefile to generate the executable `plate`
+5. Finally run the makefile to generate the executable `server` and `client`
    ```sh
    make
    ```
