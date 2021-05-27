@@ -138,7 +138,7 @@ This is an example of how to list things you need to use the software and how to
   mkdir boost
   sudo apt-get -y install build-essential g++ python-dev autotools-dev libicu-dev libbz2-dev
   wget http://downloads.sourceforge.net/project/boost/boost/1.76.0/boost_1_76_0.tar.gz
-  tar -zxvf boost_1_764_0.tar.gz
+  tar -zxvf boost_1_76_0.tar.gz
   cd boost_1_76_0
   # get the no of cpucores to make faster
   cpuCores=`cat /proc/cpuinfo | grep "cpu cores" | uniq | awk '{print $NF}'`
