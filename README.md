@@ -147,7 +147,7 @@ This is an example of how to list things you need to use the software and how to
   sudo ./b2 --with=all -j $cpuCores install
   ```
  * Check boost version
-   ```sh
+  ```sh
   cat /usr/local/include/boost/version.hpp | grep "BOOST_LIB_VERSION"
   ```
  * Result
