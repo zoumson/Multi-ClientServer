@@ -176,7 +176,7 @@ This is an example of how to list things you need to use the software and how to
     .
 
     0 directories, 0 files
-   ```sh
+   ```
 4. Then run the cmake file to generate the makefile
    ```sh
    cmake ..
