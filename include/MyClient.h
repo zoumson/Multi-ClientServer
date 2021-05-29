@@ -1,3 +1,39 @@
+
+
+/*
+* License plate detection
+* See COPYRIGHT file at the top of the source tree.
+*
+* This product includes software developed by the
+* STARGUE Project (http://www.stargue.org/).
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the STARGUE License Statement and
+* the GNU General Public License along with this program. If not,
+* see <http://www.lsstcorp.org/LegalNotices/>.
+*/
+
+/**
+ * @file MyClient.h
+ *
+ * @brief A client to send a request to a server
+ *
+ * @author Adama Zouma
+ * 
+ * @Contact: stargue49@gmail.com
+ *
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -10,9 +46,22 @@
 #include "Clock.h"
 #include <Manager.h>
 
+/**
+ * Implementation of a client
+ * This client uses a TCP/IP communication model
+ * to connect to a server
+ * Once connected the client sends the current 
+ * time information to the server
+ * the client also wait for the server response
+ */
 class MyClient
 {
 private:
+
+	/* ============================================================================
+	* Data Memeber Declaration
+	* ============================================================================
+	*/
 	int socketConnectToClient_;
 	unsigned short serverPortNumber_;
 	int numberOfByteOfBuffer_;
@@ -24,7 +73,14 @@ private:
 	Manager logManager;
 	my_logger::logger_type log = my_logger::get();
 	char buffer[1024];
+
 public:
+
+	/* ============================================================================
+	* Member Function Declaration
+	* ============================================================================
+	*/
+
 	MyClient(char *_serverIP_, unsigned short _serverPort_);
 	int createClientForConnexion();
 	int connectClientToServer();
