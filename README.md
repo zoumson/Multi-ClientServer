@@ -1,5 +1,3 @@
-# MultipleThreadMultipleClientSingleServerSocketCPP
-A single Server Handles multiple clients request using multiple threading
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
