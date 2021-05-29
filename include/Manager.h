@@ -51,10 +51,16 @@ BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(
 
 class Manager 
 {
- public:
+
+public:
   using Backend = sinks::text_ostream_backend;
-  using TextSink = sinks::synchronous_sink<Backend>;
- 
+  using TextSink = sinks::synchronous_sink<Backend>; 
+  
+private:
+boost::shared_ptr<Backend> backend_;
+boost::shared_ptr<std::ostream> current_stream_;
+
+ public:
   Manager() 
   {
     backend_ = boost::make_shared<Backend>();
@@ -89,9 +95,6 @@ class Manager
         boost::shared_ptr< std::ostream >(&std::clog, boost::null_deleter()));
   }
  
- private:
-  boost::shared_ptr<Backend> backend_;
-  boost::shared_ptr<std::ostream> current_stream_;
 };
  
 
