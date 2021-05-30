@@ -314,20 +314,19 @@ Project Link: [https://github.com/zoumson/Multi-ClientServer](https://github.com
 
 
 <!-- ACKNOWLEDGEMENTS -->
-<!-- 
+
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
--->
+* [Google](https://www.google.com/)
+* [Stack Overflow](https://stackoverflow.com/)
+* [Github](https://github.com/)
+* [Git Concept](https://www.youtube.com/watch?v=WbwIoQYP6no)
+* [Git commandss](https://www.youtube.com/watch?v=yXT1ElMEkW8)
+* [Git basics](https://www.youtube.com/watch?v=8JJ101D3knE)
+* [Oh My ZSH](https://medium.com/@ivanaugustobd/your-terminal-can-be-much-much-more-productive-5256424658e8)
+* [nerd-fonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
+* [powerlevel9k/powerlevel9](https://github.com/Powerlevel9k/powerlevel9k#available-prompt-segments)
+
+
 
 
 
