@@ -1,30 +1,6 @@
 ## Multi-Client single server using multi-threading
 ![image](https://user-images.githubusercontent.com/38358621/120076656-41d75780-c0d9-11eb-97fc-7f56e4cfa9bf.png)
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
--->
 
 
 
@@ -92,7 +68,8 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an sample code of how to implement a single server mutilple clients communication mutli-threading
+This is an sample code of how to implement a single server mutilple clients communication mutli-threading.
+<br>
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
