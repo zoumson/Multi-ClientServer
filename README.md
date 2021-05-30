@@ -118,7 +118,11 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    cd ./build
    ```
-3. Make sure build folder is empty, only .gitignore there is fine
+3. Clear the folder `build`
+   ```sh
+   rm -r *
+   ```
+4. Make sure build folder is empty, only .gitignore there is fine
 * Command 
    ```sh
    tree -L 1
@@ -129,11 +133,11 @@ This is an example of how to list things you need to use the software and how to
 
     0 directories, 0 files
    ```
-4. Then run the cmake file to generate the makefile
+5. Then run the cmake file to generate the makefile
    ```sh
    cmake ..
    ```
-5. Finally run the makefile to generate the executable `server` and `client`
+6. Finally run the makefile to generate the executable `server` and `client`
    ```sh
    make
    ```
