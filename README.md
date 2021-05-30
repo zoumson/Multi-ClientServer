@@ -1,3 +1,17 @@
+[![LinkedIn][linkedin-shield]][linkedin-url]
+<!--
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
+[![Github][github-shield]][github.com/zoumson?tab=repositories]
+[![Stack Overflow][stackoverflow-shield]][stackoverflow.com/users/11175375/adam]
+[![Leetcode][leetcode-shield]][eetcode.com/Hard_Code/]
+-->
 ## Multi-Client single server using multi-threading
 ![image](https://user-images.githubusercontent.com/38358621/120076656-41d75780-c0d9-11eb-97fc-7f56e4cfa9bf.png)
 
@@ -330,10 +344,8 @@ Project Link: [https://github.com/zoumson/Multi-ClientServer](https://github.com
 
 
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-<!-- 
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
@@ -347,4 +359,3 @@ Project Link: [https://github.com/zoumson/Multi-ClientServer](https://github.com
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
--->
