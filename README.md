@@ -148,7 +148,9 @@ This is an example of how to list things you need to use the software and how to
 Command line arguments
 <br>
 1.  Sever side 
-* Command parser using *boost options_program*
+
+* Command parser using [boost program_options](https://www.boost.org/doc/libs/1_76_0/doc/html/program_options.html)
+
 ```
 Usage: options_description [options]
 Allowed options:
@@ -210,7 +212,7 @@ Allowed options:
   [2021-05-28 02:09:36]<6>: A Server closing an accpeted connexion ...
   [2021-05-28 02:09:36]<6>: Accepted connexion closed
   ```
-2.  Sever side 
+2.  Client side 
 * Command parser using [boost program_options](https://www.boost.org/doc/libs/1_76_0/doc/html/program_options.html)
 
 
