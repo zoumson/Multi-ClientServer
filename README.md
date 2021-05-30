@@ -84,7 +84,8 @@ This is an example of how to list things you need to use the software and how to
   sudo apt-get install cmake
   ```
  * CPP standard: `CMAKE_CXX_STANDARD 17`
-* boost 
+
+* [boost](https://stackoverflow.com/questions/8430332/uninstall-boost-and-install-another-version)
   ```sh
   cd /opt
   mkdir boost
