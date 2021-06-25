@@ -42,6 +42,7 @@
 #include<netinet/in.h> //#define INET_ADDRSTRLEN 16 #define INET6_ADDRSTRLEN 46
 #include <cstring>      ///< memset
 
+namespace za{
 /* ============================================================================
  * Function Declaration
  * ============================================================================
@@ -61,3 +62,4 @@
  * 
  */
 int getLocalAddress(std::string& myIP);
+}

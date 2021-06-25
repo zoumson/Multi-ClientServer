@@ -36,7 +36,7 @@
 #ifndef MY_SERVER_H
 #define MY_SERVER_H
 
-
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,11 +49,11 @@
 #include <cstddef>
 #include <Manager.h>
 #include "GetLocalAddress.h"
-
+#include <tuple> // std::tuple, std::get, std::tie, std::ignore
 
 namespace src = boost::log::sources;
 
-
+namespace za{
 /**
  * Implementation of a server
  * This server uses a TCP/IP communication model
@@ -84,8 +84,8 @@ private:
 	struct sockaddr_in serverAddrress;
 	struct sockaddr_in clientAddress;
 	const char* logName;
-	Manager logManager;
-	my_logger::logger_type log = my_logger::get();
+	za::Manager logManager;
+	za::my_logger::logger_type log = za::my_logger::get();
 
 public:
 
@@ -113,7 +113,8 @@ public:
 	int closeListenningSocket();
 	int setLog(std::string& _logName_);
 	int setLog(std::string&& _logName_);
+	std::string getCurrentTime();
 
 };
-
+}
 #endif /* MY_SERVER_H */

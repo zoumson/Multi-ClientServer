@@ -1,7 +1,7 @@
 #include "MyProcessor.h"
 
 
-
+namespace za{
 void MyProcessor::process(MyServer serverProcessingAcceptedConnexion)
 {
     /*
@@ -9,4 +9,4 @@ void MyProcessor::process(MyServer serverProcessingAcceptedConnexion)
     Read message sent by the client 
     */
 }
-
+}

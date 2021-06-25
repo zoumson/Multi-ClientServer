@@ -1,16 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
 #include "MyClient.h"
-#include <iostream>
-#include "Clock.h"
 
 
+namespace za{
 MyClient::MyClient(char *_serverIP_, unsigned short _serverPort_)
 {
 	BOOST_LOG_SEV(log, report)<<"Client initializing ...\n";
@@ -90,9 +81,10 @@ int MyClient::sendRequestToServer()
 {
 	int returnValue = 0;
 	BOOST_LOG_SEV(log, report) << "A Client sending a request ...\n";
-	std::string aux = clock.currentDateTime();
+	//std::string aux = clock.currentDateTime();
+	std::string data = std::get<1>(getCurrentTime());
 
-	numberOfByteOfBuffer() = write(socketConnectToClient_,aux.c_str(),18);
+	numberOfByteOfBuffer() = write(socketConnectToClient_,data.c_str(),18);
 	if (numberOfByteOfBuffer() < 0 )
 	{
 		returnValue = -200002; 		
@@ -163,3 +155,16 @@ int MyClient::setLog(std::string&& _logName_)
 	this->logManager.set_log_file( &_logName_[0]);
 	return returnValue;
 }
+
+std::tuple <std::string, std::string> MyClient::getCurrentTime()
+{
+    std::time_t now = std::time(NULL);
+    std::tm * ptm = std::localtime(&now);
+    char buffer1[32], buffer2[32];
+    // Format: Mo, 15.06.2009 20:20:00
+    std::strftime(buffer1, 32, "%d_%m_%Y_%H_%M_%S_", ptm);
+    std::strftime(buffer2, 32, "%H:%M:%S", ptm);
+	return std::make_tuple(std::string(buffer1), std::string(buffer2));
+}
+}
+

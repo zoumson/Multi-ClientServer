@@ -1,5 +1,5 @@
 #include "MyServer.h"
-
+namespace za{
 // Define the default constructor
 MyServer::MyServer():MyServer(0, 5){}
 // Define a custon constructor
@@ -285,7 +285,7 @@ int MyServer::showServerPort()
 int MyServer::showServerIP()
 {
 	int returnValue = 0;
-	if( getLocalAddress(this->serverIPv4) < 0)
+	if( za::getLocalAddress(this->serverIPv4) < 0)
 	{
        	returnValue = -100011; 
         BOOST_LOG_SEV(log, error) << "Fail to get server address from getLocalAddress"
@@ -362,4 +362,15 @@ int MyServer::setLog(std::string&& _logName_)
 	int returnValue = 0;
 	this->logManager.set_log_file( &_logName_[0]);
 	return returnValue;
+}
+
+std::string MyServer::getCurrentTime()
+{
+    std::time_t now = std::time(NULL);
+    std::tm * ptm = std::localtime(&now);
+    char buffer[32];
+    // Format: Mo, 15.06.2009 20:20:00
+    std::strftime(buffer, 32, "%d_%m_%Y_%H_%M_%S_", ptm); 
+	return std::string(buffer);
+}
 }

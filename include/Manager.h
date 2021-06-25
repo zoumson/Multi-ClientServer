@@ -36,6 +36,7 @@
 #ifndef MY_MANAGER_H
 #define MY_MANAGER_H
 
+
 /**
  * Implementation of a log manager
  * This log manager store each log in a specifc file
@@ -74,6 +75,7 @@ namespace sinks = boost::log::sinks;
 namespace expr = boost::log::expressions;
 namespace keywords = boost::log::keywords;
  
+namespace za{
 enum sign_severity_level 
 {
   trace,
@@ -139,5 +141,5 @@ boost::shared_ptr<std::ostream> current_stream_;
  
 };
  
-
+}
 #endif

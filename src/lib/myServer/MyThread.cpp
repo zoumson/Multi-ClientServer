@@ -1,7 +1,7 @@
 #include "MyThread.h"
 
 
-
+namespace za{
 void *MyThread::functionThread(void *arg)
 {
 	MyThread * myThread = (MyThread *) arg;
@@ -15,8 +15,10 @@ void MyThread::createMyThread()
 	pthread_create(&this->threadID, NULL, &this->functionThread, this);
 }
 
-MyThread::MyThread(MyProcessor *_processor_, MyServer& _servserverProcessingAcceptedConnexion_)
+MyThread::MyThread(za::MyProcessor *_processor_, za::MyServer& _servserverProcessingAcceptedConnexion_)
 {
 	processor = _processor_;
 	serverProcessingAcceptedConnexion = _servserverProcessingAcceptedConnexion_;
+}
+
 }

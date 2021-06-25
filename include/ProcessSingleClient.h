@@ -37,12 +37,12 @@
 #define PROCESS_SINGLE_CLIENT_H
 #include "MyProcessor.h"
 
-
+namespace za{
 /**
  * Implementation of a derived class used to serve the client
  * The parent class is MyProcessor, an abstract class
  */
-class ProcessSingleClient:public MyProcessor
+class ProcessSingleClient:public za::MyProcessor
 {
 public:
 	/* ============================================================================
@@ -56,9 +56,9 @@ public:
 	* Member Function Declaration
 	* ============================================================================
 	*/
-	void process(MyServer _serverProcessingAcceptedConnexion_);
+	void process(za::MyServer _serverProcessingAcceptedConnexion_);
 
 };
-
+}
 #endif /*PROCESS_SINGLE_CLIENT_H */
 

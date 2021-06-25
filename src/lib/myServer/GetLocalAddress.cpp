@@ -1,6 +1,8 @@
 
 #include "GetLocalAddress.h"
 
+namespace za{
+
 int getLocalAddress(std::string& myIP)
 {
     const char* googleDNSServerIPAddress = "8.8.8.8";
@@ -68,3 +70,4 @@ int getLocalAddress(std::string& myIP)
        
 }
 
+}

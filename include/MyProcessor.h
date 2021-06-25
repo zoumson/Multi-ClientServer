@@ -38,6 +38,7 @@
 #define MY_PROCESSOR_H
 #include "MyServer.h"
 
+namespace za{
 /**
  * Implementation of a Processor to deal with a client request
  *
@@ -58,8 +59,9 @@ class MyProcessor
 {
 public:
 
-	virtual void process(MyServer serverProcessingAcceptedConnexion) = 0;
+	virtual void process(za::MyServer serverProcessingAcceptedConnexion) = 0;
 
 };
+}
 
 #endif /*MY_PROCESSOR_H */

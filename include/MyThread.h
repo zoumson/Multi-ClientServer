@@ -32,11 +32,15 @@
  * @Contact: stargue49@gmail.com
  *
  */
+
+#ifndef MY_THREAD_H
+#define MY_THREAD_H
+
 #include <pthread.h>
 #include "MyProcessor.h"
 #include "MyServer.h"
 
-
+namespace za{
 /**
  * Implementation of a thread to handle multiple
  * client that wants to connect to a single server
@@ -58,8 +62,10 @@ public:
 	* Member Function Declaration
 	* ============================================================================
 	*/
-	MyServer serverProcessingAcceptedConnexion;
+	za::MyServer serverProcessingAcceptedConnexion;
 	void createMyThread();
 	static void *functionThread(void *arg);
-	MyThread(MyProcessor * _processor_, MyServer& _servserverProcessingAcceptedConnexion_);
+	MyThread(MyProcessor * _processor_, za::MyServer& _servserverProcessingAcceptedConnexion_);
 };
+}
+#endif /*MY_THREAD_H */

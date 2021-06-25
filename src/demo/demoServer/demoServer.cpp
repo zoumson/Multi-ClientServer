@@ -27,6 +27,8 @@ int main(int argc, char const *argv[])
 
 	int returnValue;
 	std::string localIP;
+	std::string logServer;
+	std::string logPath = "./log/";
 	unsigned short localPort;
 	unsigned short maxConnexion;
 	// command parser
@@ -41,8 +43,8 @@ int main(int argc, char const *argv[])
 				("connexion,c", po::value<unsigned short>(&maxConnexion)->implicit_value(10)
 					->default_value(5,"few"),
 					"server max connexion.")
-			;
-					
+				("log,l", po::value<std::string>(&logServer)->default_value("server.log")->implicit_value("server.log"), "server log name"
+				);	
 			// Point out that all unknown values ​​should be converted to the value of the "input-file" option.
 					// Also use the command_line_parser class instead of parse_command_line 
 			po::variables_map vm;        
@@ -64,8 +66,8 @@ int main(int argc, char const *argv[])
 
 	// End of command parser
 
-	MyServer myServer(localPort, maxConnexion);
-	if(myServer.setLog(logName) < 0) return -1;
+	za::MyServer myServer(localPort, maxConnexion);
+	if(myServer.setLog(logPath + myServer.getCurrentTime()+logName) < 0) return -1;
 	if(myServer.showServerIP() < 0) return -1;
 	if(myServer.createServerForBindAndListen() < 0) return -1;
 	if(myServer.bindServerToPortNumber() < 0) return -1;
@@ -77,7 +79,7 @@ int main(int argc, char const *argv[])
 
         if(myServer.acceptToMakeConnexionWithClient() < 0) return -1;
 
-        MyThread *myThread = new MyThread(new ProcessSingleClient(), myServer);
+        za::MyThread *myThread = new za::MyThread(new za::ProcessSingleClient(), myServer);
         myThread -> createMyThread();
 	}
 	

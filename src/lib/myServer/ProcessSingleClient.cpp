@@ -1,8 +1,7 @@
 #include "ProcessSingleClient.h"
-#include <unistd.h>
 
-
-void ProcessSingleClient::process(MyServer _serverProcessingAcceptedConnexion_)
+namespace za{
+void ProcessSingleClient::process(za::MyServer _serverProcessingAcceptedConnexion_)
 {
 	bool flag = true;
 
@@ -20,4 +19,5 @@ void ProcessSingleClient::process(MyServer _serverProcessingAcceptedConnexion_)
 		
 	}
 	}
+}
 }

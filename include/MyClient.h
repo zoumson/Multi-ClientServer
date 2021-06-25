@@ -32,6 +32,8 @@
  * @Contact: stargue49@gmail.com
  *
  */
+#ifndef MY_CLIENT_H
+#define MY_CLIENT_H
 
 
 #include <stdio.h>
@@ -43,9 +45,11 @@
 #include <netinet/in.h>
 #include <netdb.h> 
 #include <iostream>
-#include "Clock.h"
+//#include "Clock.h"
 #include <Manager.h>
-
+#include <tuple>
+#include <time.h>
+namespace za{
 /**
  * Implementation of a client
  * This client uses a TCP/IP communication model
@@ -66,12 +70,12 @@ private:
 	unsigned short serverPortNumber_;
 	int numberOfByteOfBuffer_;
 
-	Clock clock;
+	//Clock clock;
 
 	struct sockaddr_in serverAddress_;
 	struct hostent *serverIP_;
-	Manager logManager;
-	my_logger::logger_type log = my_logger::get();
+	za::Manager logManager;
+	za::my_logger::logger_type log = za::my_logger::get();
 	char buffer[1024];
 
 public:
@@ -89,6 +93,7 @@ public:
 	int closeConnexion();
 	int setLog(std::string& _logName_);
 	int setLog(std::string&& _logName_);
+	std::tuple <std::string, std::string> getCurrentTime();
 	// Setter and Getter socketConnectToClient
 
 	auto socketConnectToClient() const& -> const int& { return socketConnectToClient_; }
@@ -113,3 +118,6 @@ public:
 	auto serverAddress() &&     -> sockaddr_in&&      { return std::move(serverAddress_); }
 	// Setter and Getter socketConnectToClient
 };
+}
+
+#endif /* MY_CLIENT_H */

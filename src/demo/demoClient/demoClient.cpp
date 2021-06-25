@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 
 	int returnValue;
 	std::string serverIP;
+	std::string logClient;
+	std::string logPath  = "./log/";
 	unsigned short serverPort;
 	try 
 		{
@@ -25,10 +27,11 @@ int main(int argc, char *argv[])
 				("help,h", "produce help message")
 				("ip,i", po::value<std::string>(),
 					"server IP address")
+				
 				("port,p", po::value<unsigned short>(),
 					"server port number.")
-			;
-					
+				("log,l", po::value<std::string>(&logClient)->default_value("client.log")->implicit_value("client.log"), "client log path"
+				);				
 			/* Point out that all unknown values ​​should be converted to the value of the "input-file" option.
 					* Also use the command_line_parser class instead of parse_command_line */
 			po::variables_map vm;        
@@ -69,8 +72,9 @@ int main(int argc, char *argv[])
 			}
 	// End of command parser
 
-	MyClient myClient (&serverIP[0], serverPort);
-	if( myClient.setLog("client.log") < 0) return -1;
+	za::MyClient myClient (&serverIP[0], serverPort);
+	//if( myClient.setLog("./log/client.log") < 0) return -1;
+	if( myClient.setLog(logPath +  std::get<0>(myClient.getCurrentTime())+logClient) < 0) return -1;
 	while(true)
 	{
 		if(myClient.sendRequestToServer() < 0) return -1;
