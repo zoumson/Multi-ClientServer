@@ -323,6 +323,7 @@ Allowed options:
   [2021-05-28 02:09:30]<6>: sucess
   ```
   4. Back to the initial file structure configuration
+  5. 
    ```sh
    rm -r bin build log lib
    ```
