@@ -17,7 +17,6 @@
 
 
 
-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -26,6 +25,13 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#file-structure">Files Structure</a>
+      <ul>
+        <li><a href="#folders">Folders</a></li>
+        <li><a href="#entire-files-structure">Entire Files Structure</a></li>
       </ul>
     </li>
     <li>
@@ -43,6 +49,7 @@
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
+
 
 
 
@@ -86,18 +93,58 @@ This is an sample code of how to implement a single server mutilple clients comm
 <br>
 To get a local copy up and running follow these simple steps.
 
+## File Structure
+
+### Folders
+
+* [include/](include/): c++ declarations.
+* [resource/](resource/): images.
+* [src/](src/): c++ definitions.
+
+
+### Entire Files Structure 
+
+```
+.
+├── CMakeLists.txt
+├── include
+│   ├── GetLocalAddress.h
+│   ├── Manager.h
+│   ├── MyClient.h
+│   ├── MyProcessor.h
+│   ├── MyServer.h
+│   ├── MyThread.h
+│   └── ProcessSingleClient.h
+├── README.md
+└── src
+    ├── demo
+    │   ├── CMakeLists.txt
+    │   ├── demoClient
+    │   │   └── demoClient.cpp
+    │   └── demoServer
+    │       └── demoServer.cpp
+    └── lib
+        ├── CMakeLists.txt
+        ├── myClient
+        │   └── MyClient.cpp
+        └── myServer
+            ├── GetLocalAddress.cpp
+            ├── MyProcessor.cpp
+            ├── MyServer.cpp
+            ├── MyThread.cpp
+            └── ProcessSingleClient.cpp
+
+8 directories, 19 files
+
+```
+
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* tree
-  ```sh
-  sudo apt-get install tree
-  ```
 * cmake
   ```sh
   sudo apt-get install cmake
   ```
- * CPP standard: `CMAKE_CXX_STANDARD 17`
 
 * [boost](https://stackoverflow.com/questions/8430332/uninstall-boost-and-install-another-version)
   ```sh
@@ -129,34 +176,18 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/zoumson/Multi-ClientServer.git
    ```
-2. Go to build
+2. Go to the project directory source
    ```sh
-   cd ./build
+   cd Multi-ClientServer
    ```
-3. Clear the folder `build`
+3. Create empty directories 
    ```sh
-   rm -r *
+   mkdir build &&  mkdir bin && mkdir log && mkdir lib 
    ```
-4. Make sure `build` folder is empty, only `.gitignore` there is fine
-* Command 
+5. Generate the exectutable and move it to `bin`
    ```sh
-   tree -L 1
+   cd build && cmake .. && make -j4 && cd ..
    ```
-* Expected result
-   ```sh
-    .
-
-    0 directories, 0 files
-   ```
-5. Then run the cmake file to generate the makefile
-   ```sh
-   cmake ..
-   ```
-6. Finally run the makefile to generate the executable `server` and `client`
-   ```sh
-   make
-   ```
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -172,7 +203,8 @@ Allowed options:
   -h [ --help ]                         produce help message
   -p [ --port ] [=arg(=60000)] (=no)    server port number.
   -c [ --connexion ] [=arg(=10)] (=few) server max connexion.
-
+  -l [ --log ] [=arg(=server.log)] (=server.log)
+                                        server log name
 ```
 * Dafaut server port number: random available port from host
    ```sh
@@ -186,7 +218,7 @@ Allowed options:
    ```sh
    ./server -p myPort
    ```
-  * Server log: `server.log`
+  * Server log: `2021_05_28_02_08_11_server.log`
   * Sample server log
   
   
@@ -234,12 +266,14 @@ Allowed options:
 ```
 Usage: options_description [options]
 Allowed options:
-  -h [ --help ]         produce help message
-  -i [ --ip ] arg       server IP address
-  -p [ --port ] arg     server port number.
+  -h [ --help ]                         produce help message
+  -i [ --ip ] arg                       server IP address
+  -p [ --port ] arg                     server port number.
+  -l [ --log ] [=arg(=client.log)] (=client.log)
+                                        client log path
 
 ```
-* Client log: `client.log`
+* Client log: `2021_05_28_02_08_42_client.log`
 * Sample client log
   ```
   [2021-05-28 02:08:42]<6>: A Client sending a request ...
@@ -288,7 +322,10 @@ Allowed options:
   [2021-05-28 02:09:30]<6>: Response from a server
   [2021-05-28 02:09:30]<6>: sucess
   ```
-   
+  4. Back to the initial file structure configuration
+   ```sh
+   rm -r bin build log lib
+   ```
       
    
 <!-- ROADMAP -->
