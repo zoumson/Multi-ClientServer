@@ -184,7 +184,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    mkdir build &&  mkdir bin && mkdir log && mkdir lib 
    ```
-5. Generate the exectutable and move it to `bin`
+5. Generate the exectutables and move them to `bin`
    ```sh
    cd build && cmake .. && make -j4 && cd ..
    ```
