@@ -98,7 +98,6 @@ To get a local copy up and running follow these simple steps.
 ### Folders
 
 * [include/](include/): c++ declarations.
-* [resource/](resource/): images.
 * [src/](src/): c++ definitions.
 
 
